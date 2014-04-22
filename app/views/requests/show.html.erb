@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @request.title %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @request.kind %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @request.priority %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @request.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @request.user_id %>
+</p>
+  <p>  	
+
+<h3>Notes</h3>
+  <%= render "comments/comment" %>
+
+<h2>Create a Note</h2>
+ <%= render "comments/form" %>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
