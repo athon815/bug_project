@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'foundation-rails'
 gem 'devise'
 gem 'rails', '4.0.3'
 gem 'sqlite3'
