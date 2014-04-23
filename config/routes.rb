@@ -14,7 +14,7 @@ Trackernew::Application.routes.draw do
     resources :comments
   end
   # You can have the root of your site routed with "root"
-    root to: 'users#index'
+    root to: 'welcome#index'
     resources :user_sessions
     resources :users
 
