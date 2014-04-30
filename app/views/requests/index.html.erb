@@ -30,7 +30,7 @@
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-        <td><%= link_to 'Assign', new_assignment_path if current_user.admin? %></td>
+        <td><%= link_to 'Assign', new_request_assignment_path(request) if current_user.admin? %></td>
       </tr>
     <% end %>
   </tbody>

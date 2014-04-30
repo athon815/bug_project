@@ -1,4 +1,4 @@
 class Assignment < ActiveRecord::Base
-	has_many :requests
+	belongs_to :requests
 	
 end
