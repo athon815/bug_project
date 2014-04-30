@@ -1,4 +1,4 @@
-<h1>Listing requests</h1>
+<h1>Requests</h1>
 
 <table>
   <thead>
@@ -8,7 +8,7 @@
       <th>Description</th>
       <th>User</th>
       <% if current_user.admin? %>
-        <th>Priority</th>
+      <th>Priority</th>
       <% end %>
       <th></th>
       <th></th>
@@ -17,16 +17,20 @@
   </thead>
 
   <tbody>
+  
     <% @requests.each do |request| %>
       <tr>
         <td><%= request.kind %></td>
         <td><%= request.title %></td>
         <td><%= request.description %></td>
-        <td><%= request.user_id %></td>
+        <td><%= request.user.name %></td>
         <td><%= request.priority if current_user.admin? %></td>
         <td><%= link_to 'Show', request %></td>
+        <% if current_user == request.user %>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td><%= link_to 'Assign', new_assignment_path if current_user.admin? %></td>
       </tr>
     <% end %>
   </tbody>

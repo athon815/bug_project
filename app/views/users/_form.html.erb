@@ -12,8 +12,8 @@
   <% end %>
 
    <div class="field">
-    <%= f.label :admin %><br>
-    <%= f.check_box :admin %>
+   <%= f.label :admin %>
+    <%= f.radio_button :admin, true %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
@@ -31,9 +31,14 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions">
- <%= link_to 'Sign Up', users_path %></td>
+  <% if user_signed_in?%>
+    <div class="actions">
+    <%= f.submit "Update" %></td>
   </div>
+    <% else %>
+  <div><button href="#" class="tiny success button radius"><%= link_to 'Sign Up', users_path %></button></td>
+  </div>
+  <% end %>
 <% end %>
 
 

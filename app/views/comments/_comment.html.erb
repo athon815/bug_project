@@ -4,6 +4,5 @@
    	<cite><%= comment.commenter %></cite></blockquote>
   </p>
 
-<%= link_to 'Destroy Comment', [comment.request, comment], method: :delete, data: { confirm: 'Are you sure?' } if current_uesr == user %>
 
 <% end %>

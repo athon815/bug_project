@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Title:</strong>
   <%= @request.title %>
@@ -33,5 +34,5 @@
  <%= render "comments/form" %>
 
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Edit', edit_request_path(@request) if current_user == @request.user %> |
 <%= link_to 'Back', requests_path %>

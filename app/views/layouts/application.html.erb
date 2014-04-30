@@ -13,7 +13,17 @@
 
   <body>
 
+   <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
     <%= yield %>
     <%= javascript_include_tag "application" %>
+    <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<% end %>
+<br>
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  
+<%end%>
   </body>
 </html>
