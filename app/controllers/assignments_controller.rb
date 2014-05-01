@@ -14,6 +14,7 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/new
   def new
+    @request = Request.find(params[:request_id])
     @assignment = Assignment.new(:request_id => params[:request_id])
   end
 

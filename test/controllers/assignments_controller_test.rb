@@ -44,6 +44,6 @@ class AssignmentsControllerTest < ActionController::TestCase
       delete :destroy, id: @assignment
     end
 
-    assert_redirected_to assignments_path
+    assert_redirected_to request_assignments_path
   end
 end
