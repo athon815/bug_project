@@ -4,12 +4,14 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
+    @request = Request.find(params[:request_id])
     @assignments = Assignment.all
   end
 
   # GET /assignments/1
   # GET /assignments/1.json
   def show
+    @request = Request.find(params[:request_id])
   end
 
   # GET /assignments/new
@@ -25,11 +27,12 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   # POST /assignments.json
   def create
+    @request = Request.find(params[:request_id])
     @assignment = Assignment.new(assignment_params)
 
     respond_to do |format|
       if @assignment.save
-        format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
+        format.html { redirect_to request_assignments_path(@request), notice: 'Assignment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @assignment }
       else
         format.html { render action: 'new' }
@@ -55,9 +58,10 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1
   # DELETE /assignments/1.json
   def destroy
+    @request = Request.find(params[:request_id])
     @assignment.destroy
     respond_to do |format|
-      format.html { redirect_to assignments_url }
+      format.html { redirect_to request_assignments_path(@request) }
       format.json { head :no_content }
     end
   end

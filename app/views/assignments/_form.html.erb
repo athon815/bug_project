@@ -1,4 +1,4 @@
-<%= form_for([@request, @assignment], url: new_request_assignment_path(@request)) do |f| %>
+<%= form_for([@request, @assignment]) do |f| %>
   <% if @assignment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>

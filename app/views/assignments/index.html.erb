@@ -15,10 +15,10 @@
     <% @assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.title %></td>
-        <td><%= assignment.description %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= assignment.description %></td> 
+        <td><%= link_to 'Show', request_assignment_path(assignment.request, assignment) %></td> 
+        <td><%= link_to 'Edit', edit_request_assignment_path(assignment.request, assignment) %></td>
+        <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
