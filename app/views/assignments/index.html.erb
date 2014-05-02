@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Assigned</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= assignment.title %></td>
         <td><%= assignment.description %></td> 
+        <td><%= assignment.user.name %></td>
         <td><%= link_to 'Show', request_assignment_path(assignment.request, assignment) %></td> 
         <td><%= link_to 'Edit', edit_request_assignment_path(assignment.request, assignment) %></td>
         <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Assignment', new_request_assignment_path %>
+<%= link_to 'Requests', requests_path %> 
+<%= link_to 'New request', new_request_path %>
