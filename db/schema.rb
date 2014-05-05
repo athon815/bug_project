@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430190406) do
+ActiveRecord::Schema.define(version: 20140505201623) do
 
   create_table "assignments", force: true do |t|
     t.string   "title"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20140430190406) do
     t.integer  "priority"
     t.string   "commenter"
     t.text     "comment"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "users", force: true do |t|

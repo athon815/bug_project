@@ -10,6 +10,7 @@
       <% if current_user.admin? %>
       <th>Priority</th>
       <% end %>
+      <th>Assigned to:</th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,12 +26,13 @@
         <td><%= request.description %></td>
         <td><%= request.user.name %></td>
         <td><%= request.priority if current_user.admin? %></td>
+        <td><%= request.assignment.user.name %></td>
         <td><%= link_to 'Show', request %></td>
         <% if current_user == request.user %>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-        <td><%= link_to 'Assign', new_request_assignment_path(request) if current_user.admin? %></td>
+        <td><%= link_to 'Assign', new_request_assignment_path(request) if current_user.admin? && request.assignment.nil? %></td>
       </tr>
     <% end %>
   </tbody>

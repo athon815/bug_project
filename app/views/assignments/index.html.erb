@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Request</th>
       <th>Title</th>
       <th>Description</th>
       <th>Assigned</th>
@@ -15,12 +16,13 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
+        <td><%= assignment.request.title %></td>
         <td><%= assignment.title %></td>
         <td><%= assignment.description %></td> 
         <td><%= assignment.user.name %></td>
         <td><%= link_to 'Show', request_assignment_path(assignment.request, assignment) %></td> 
         <td><%= link_to 'Edit', edit_request_assignment_path(assignment.request, assignment) %></td>
-        <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } if current_user == assignment.user %></td>
       </tr>
     <% end %>
   </tbody>

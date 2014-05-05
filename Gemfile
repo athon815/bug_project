@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'paperclip', '~> 4.1'
 gem 'foundation-rails'
 gem 'devise'
 gem 'rails', '4.0.3'

@@ -11,16 +11,16 @@
 </p>
 
 <p>
+<% if current_user == @assignment.user %>
 	<strong>Request:</strong>
 	<%= @assignment.request.title %><br>
 	<strong>Description:</strong>
 	<%= @assignment.request.description %>
 </p>
+<%= image_tag @request.attachment.url(:medium) %>
+<% end %>
+<br>
 
-<% if current_user == @assignment.user %>
-	<%= @assignment.title %>
-
-	<% end %>
 
 <%= link_to 'Edit', edit_request_assignment_path(@request, @assignment) %> |
 <%= link_to 'Back', request_assignments_path %>

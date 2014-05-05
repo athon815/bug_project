@@ -25,7 +25,12 @@
   <strong>User:</strong>
   <%= @request.user_id %>
 </p>
-  <p>  	
+  <p> 
+
+<%= image_tag @request.attachment.url(:medium) %>
+</p>
+
+
 
 <h3>Notes</h3>
   <%= render "comments/comment" %>

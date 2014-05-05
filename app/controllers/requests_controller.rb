@@ -57,6 +57,8 @@ class RequestsController < ApplicationController
   # DELETE /requests/1
   # DELETE /requests/1.json
   def destroy
+    @request.attachment = nil
+    @request.save
     @request = Request.find(params[:id])
     
     @request.destroy
@@ -66,6 +68,8 @@ class RequestsController < ApplicationController
     end
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
@@ -74,6 +78,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:user, :title, :description, :user_id, :kind, :priority)
+      params.require(:request).permit(:user, :title, :description, :user_id, :kind, :priority, :attachment)
     end
 end
