@@ -29,7 +29,7 @@
         <% if current_user.try(:admin) %>
         <td><%= request.priority %></td>
         <% end %>
-        <td><%= request.assignment.user.name %></td>
+        <td><%= request.assignment.user.name unless request.assignment.nil? %></td>
         <td><%= link_to 'Show', request %></td>
         <% if current_user == request.user %>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>

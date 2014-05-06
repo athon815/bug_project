@@ -10,10 +10,8 @@
 	<%= @user.name %>
 <p>
 
-<p>
-	<strong>Requests:</strong><br>
-	<%= @user.requests.name %>
-<p>
+
+
 <%= link_to 'Requests', requests_path %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
