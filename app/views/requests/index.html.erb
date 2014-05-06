@@ -6,11 +6,12 @@
       <th>Kind</th>
       <th>Title</th>
       <th>Description</th>
-      <th>User</th>
-      <% if current_user.admin? %>
+      <th>Submitted by</th>
+      <% if current_user.try(:admin) %>
       <th>Priority</th>
       <% end %>
-      <th>Assigned to:</th>
+      <th>Assigned to</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,14 +26,16 @@
         <td><%= request.title %></td>
         <td><%= request.description %></td>
         <td><%= request.user.name %></td>
-        <td><%= request.priority if current_user.admin? %></td>
+        <% if current_user.try(:admin) %>
+        <td><%= request.priority %></td>
+        <% end %>
         <td><%= request.assignment.user.name %></td>
         <td><%= link_to 'Show', request %></td>
         <% if current_user == request.user %>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-        <td><%= link_to 'Assign', new_request_assignment_path(request) if current_user.admin? && request.assignment.nil? %></td>
+        <td><%= link_to 'Assign', new_request_assignment_path(request) if current_user.try(:admin) && request.assignment.nil? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,5 +43,4 @@
 
 <br>
 
-<%= link_to 'New Request', new_request_path %>
 

@@ -25,7 +25,11 @@
   <strong>User:</strong>
   <%= @request.user_id %>
 </p>
-  <p> 
+
+<p>
+  <strong>Assigned To:</strong>
+  <%= @request.assignment.user.name %>
+<p> 
 
 <%= image_tag @request.attachment.url(:medium) %>
 </p>

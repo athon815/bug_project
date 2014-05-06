@@ -1,11 +1,11 @@
 <h1>Welcome</h1>
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
+  <h3 class="subheader">Logged in as <strong><%= current_user.email %></strong>.</h3>
   <br>
-  <%= link_to 'Requests', requests_path %> |
-  <%= link_to 'Edit profile', edit_user_registration_path %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %> |
-  <%= link_to "Login", new_user_session_path %>
+	<h3><small><%= link_to 'Edit profile', edit_user_registration_path %></small></h3> 
+<% else %>	
+	<h4 class="subheader"><%= link_to "Login", new_user_session_path %></h4>
+	<h3> Not a user yet? <h3>
+ 	<h4 class="subheader"><%= link_to "Sign up", new_user_registration_path %></h4>
+ 
 <% end %>

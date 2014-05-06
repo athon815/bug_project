@@ -10,7 +10,7 @@ Trackernew::Application.routes.draw do
   get "user_sessions/create"
   get "user_sessions/destroy"
   resources :users
-
+  get 'Welcome' => 'welcome#index'
   get "users/new"
   get "users/edit"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -23,9 +23,10 @@ Trackernew::Application.routes.draw do
     root to: 'welcome#index'
     resources :user_sessions
     resources :users
-
+  get 'Users' => 'users#index'
+  get 'New Request' => 'requests#new'
    get 'assignments' => 'assignments#index'
-
+   get 'requsts' => 'requsts#index'
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 end
