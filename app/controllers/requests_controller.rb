@@ -62,12 +62,15 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     
     @request.destroy
+    if @request.assignment
     @request.assignment.destroy
+  else
     respond_to do |format|
       format.html { redirect_to requests_url }
       format.json { head :no_content }
     end
   end
+end
 
   
 
