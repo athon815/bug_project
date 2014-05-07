@@ -2,7 +2,6 @@ Trackernew::Application.routes.draw do
 
 
 
-
   devise_for :views
   devise_for :users
   get "welcome/index"
@@ -10,7 +9,7 @@ Trackernew::Application.routes.draw do
   get "user_sessions/create"
   get "user_sessions/destroy"
   resources :users
-  get 'Welcome' => 'welcome#index'
+
   get "users/new"
   get "users/edit"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,11 +23,12 @@ Trackernew::Application.routes.draw do
     resources :user_sessions
     resources :users
   get 'Users' => 'users#index'
-  get 'New Request' => 'requests#new'
+  get 'New_Request' => 'requests#new'
    get 'assignments' => 'assignments#index'
-   get 'requsts' => 'requsts#index'
-  get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+   get 'requests' => 'requests#index' 
+   get 'users/sign_in', to: 'devise/sessions#new'
+  post 'logout' => 'devise/sessions#destroy', :as => :logout
+  get 'users/sign_up' => 'devise/users#new'
 end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

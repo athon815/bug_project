@@ -4,7 +4,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.json
   def index
-    # @request = Request.find(params[:request_id])
+    #@request = Request.find(params[:request_id])
     @assignments = Assignment.all
   end
 
@@ -61,6 +61,7 @@ class AssignmentsController < ApplicationController
   def destroy
     @request = Request.find(params[:request_id])
     @assignment.destroy
+    @assignment.request.destroy
     respond_to do |format|
       format.html { redirect_to request_assignments_path(@request) }
       format.json { head :no_content }
