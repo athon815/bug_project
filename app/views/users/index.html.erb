@@ -18,7 +18,7 @@
         <td><%= user.name %></td>
         <td><button href="#" class="tiny button radius"><%= link_to 'Show', user %></button></td>
         <% if current_user == user %>
-        <td><button href="#" class="tiny button radius"><%= link_to 'Edit', edit_user_path(user) %></button></td>
+        <td><button href="#" class="tiny button radius"><%= link_to 'Edit', edit_user_registration_path(user) %></button></td>
         <% end %>
         <% if current_user == user %>
           <td><button href="#" class="tiny button radius"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?  ' + user.email }, notice: 'Account deleted!' %></button></td>
