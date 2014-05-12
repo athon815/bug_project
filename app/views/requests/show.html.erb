@@ -27,8 +27,10 @@
 </p>
 
 <p>
+  <% unless @request.assignment.nil? %>
   <strong>Assigned To:</strong>
-
+  <%= @request.assignment.user.name %>
+  <% end %>
 <p> 
 <%= image_tag @request.attachment.url(:medium) if @request.attachment?%>
 </p>

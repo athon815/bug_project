@@ -1,8 +1,8 @@
 <h1>Welcome</h1>
 <% if user_signed_in? %>
   <h3 class="subheader">Logged in as <strong><%= current_user.email %></strong>.</h3>
-  <br>
-	<h3><small><%= link_to 'Edit profile', edit_user_registration_path %></small></h3> 
+	<h3><small><%= link_to 'Edit profile', edit_user_registration_path %></small></h3>
+	 <h3><small><%= link_to 'Requests', requests_path %></small></h3>
 <% else %>
 	<a href='users/sign_in' class="button success radius">Login</a>
 	<h3> Not a user yet? <h3>
