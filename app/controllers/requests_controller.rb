@@ -15,17 +15,20 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    
   end
 
   # GET /requests/1/edit
   def edit
     @request = Request.find(params[:id])
+    @assignment = Assignment.new(:request_id => params[:request_id])
   end
 
   # POST /requests
   # POST /requests.json
   def create
     @request = Request.new(request_params)
+    @assignment = Assignment.new(:request_id => params[:request_id])
 
     respond_to do |format|
       if @request.save

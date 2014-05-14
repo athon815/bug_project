@@ -19,9 +19,10 @@ Trackernew::Application.routes.draw do
     resources :comments
   end
   # You can have the root of your site routed with "root"
-    root to: 'welcome#index'
+    root to: 'requests#index'
     resources :user_sessions
     resources :users
+  get 'User' => 'users#show'
   get 'Users' => 'users#index'
   get 'New_Request' => 'requests#new'
    get 'assignments' => 'assignments#index'

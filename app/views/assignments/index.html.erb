@@ -20,11 +20,11 @@
         <td><%= assignment.request.title %></td>
         <td><%= assignment.title %></td>
         <td><%= assignment.description %></td> 
-        <td><%= assignment.user.name %></td>
+        <td><%= assignment.user.name unless assignment.user.nil? %></td>
         <td><%= assignment.status %></td>
         <td><%= link_to 'Show', request_assignment_path(assignment.request, assignment) %></td> 
         <td><%= link_to 'Edit', edit_request_assignment_path(assignment.request, assignment) %></td>
-        <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } if current_user == assignment.user %></td>
+        <td><%= link_to 'Destroy', [assignment.request, assignment], method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin?  %></td>
       </tr>
     <% end %>
   </tbody>
