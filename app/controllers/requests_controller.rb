@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
-    
+
   end
 
   # GET /requests/1/edit
@@ -28,19 +28,23 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
-    @assignment = Assignment.new(:request_id => params[:request_id])
+    #@assignment = Assignment.new(:request_id => params[:request_id])
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @request }
+        if current_user.admin
+          format.html { redirect_to new_request_assignment_path(@request), notice: 'Request was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @request }
+        else
+          format.html { redirect_to requests_path, notice: 'Request was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @request }
+        end 
       else
         format.html { render action: 'new' }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
   end
-
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update
